@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "fd73b3d9-4c0e-4fd9-a81e-362bd5f8e25f"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ng-long-press": {
+      "projectType": "library",
+      "root": "projects/ng-long-press",
+      "sourceRoot": "projects/ng-long-press/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-long-press/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-long-press/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-long-press/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-long-press/src/test.ts",
+            "tsConfig": "projects/ng-long-press/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-long-press/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-long-press"
 }
