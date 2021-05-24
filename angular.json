@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "fd73b3d9-4c0e-4fd9-a81e-362bd5f8e25f"
+    "analytics": "fd73b3d9-4c0e-4fd9-a81e-362bd5f8e25f",
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -33,6 +34,15 @@
             "main": "projects/ng-long-press/src/test.ts",
             "tsConfig": "projects/ng-long-press/tsconfig.spec.json",
             "karmaConfig": "projects/ng-long-press/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-long-press/**/*.ts",
+              "projects/ng-long-press/**/*.html"
+            ]
           }
         }
       }
